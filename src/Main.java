@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
+        Random rand = new Random();
         /*int[] numeros = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
         int ultimo = numeros[9];
 
@@ -15,7 +15,7 @@ public class Main {
         numeros[0] = ultimo;
         System.out.println(Arrays.toString(numeros));
 //---------------------------------------------------------------------------------------------------------
-        Random rand = new Random();
+
         int[] ramdon = new int[20];
         for (int i = 0; i < ramdon.length; i++) {
             ramdon[i] = rand.nextInt(100);
@@ -38,8 +38,6 @@ public class Main {
         int indeximpares = 0;
 
 
-
-
         for(int i = 0; i < ramdon.length;i++){
             if(ramdon[i] % 2 == 0){
                 pares1[indexpares] = ramdon[i];
@@ -51,19 +49,43 @@ public class Main {
         }
 
         System.out.println(Arrays.toString(pares1));
-        System.out.println(Arrays.toString(impares1));*/
-
+        System.out.println(Arrays.toString(impares1));
+//-------------------------------------------------------------------------------------------------
         Scanner orden = new Scanner(System.in);
         int numero;
-
-        for (int i = 0 ; i < 5; i++){
+        int[] arrayOrden = new int[5];
+        int temp;
+        for (int i = 0; i < 5; i++) {
             System.out.println("pon numero ");
-            numero = orden.nextInt();
-            int [] arrayOrden = new int[numero];
-            arrayOrden[i] = numero;
-            System.out.println(Arrays.toString(arrayOrden));
+            arrayOrden[i] = orden.nextInt();
+        }//Diagrama de BUrbuja
+            for (int i = 0; i < arrayOrden.length - 1; i++) {
+                for (int j = 0; j < arrayOrden.length - i - 1; j++) {
+                    if (arrayOrden[j] > arrayOrden[j + 1]) {
+                        temp = arrayOrden[j];
+                        arrayOrden[j] = arrayOrden[j + 1];
+                        arrayOrden[j + 1] = temp;
+                    }
+
+                }
+
+            }
+        System.out.println(Arrays.toString(arrayOrden));*/
+
+        //-----------------------------------------------------------------------------------------------
+
+        int[][] tabla = new int[5][5];
+
+        for (int i = 0; i < tabla.length; i++) {
+            for (int j = 0; j < tabla.length; j++) {
+                tabla[i][j] = i + j;
+            }
         }
-
+        for (int i = 0; i < tabla.length; i++) {
+            for (int j = 0; j < tabla.length; j++) {
+                System.out.print(tabla[i][j] + " ");
+            }
+            System.out.println();
+        }
     }
-
 }
